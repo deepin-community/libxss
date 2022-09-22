@@ -1,0 +1,10 @@
+#!/usr/bin/make -f
+
+%:
+	dh $@ --with quilt --builddirectory=build/
+
+override_dh_install:
+	dh_install --fail-missing --exclude=libXss.la --exclude=usr/share/man/man3
+
+override_dh_makeshlibs:
+	dh_makeshlibs -- -c4
